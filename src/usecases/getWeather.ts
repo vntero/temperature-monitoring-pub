@@ -8,7 +8,7 @@ dotenv.config()
 const apiKey = process.env.WEATHER_API_KEY as string
 const apiUrl = new URL('http://api.weatherapi.com/v1/current.json')
 
-export const getWeather = async (city: string) => {
+export const getWeather = async (city: string): Promise<any> => {
   try {
     apiUrl.searchParams.append('key', apiKey)
     apiUrl.searchParams.append('q', city)
@@ -24,5 +24,6 @@ export const getWeather = async (city: string) => {
     return data
   } catch (error) {
     console.error('Unable to fetch weather data', error)
+    throw error
   }
 }
