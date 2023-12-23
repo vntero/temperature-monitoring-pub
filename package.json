@@ -1,0 +1,44 @@
+{
+  "name": "minimal-node-ts",
+  "private": true,
+  "version": "1",
+  "scripts": {
+    "start": "NODE_PRESERVE_SYMLINKS=1 ts-node-dev --debug --ignore-watch node_modules src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "test-only": "NODE_PRESERVE_SYMLINKS=1 jest --forceExit --detectOpenHandles",
+    "test-debug": "NODE_PRESERVE_SYMLINKS=1 jest",
+    "test-ts": "tsc --noEmit",
+    "jest": "jest"
+  },
+  "dependencies": {
+    "@types/uuid": "^8.3.0",
+    "babel-jest": "^29.4.3",
+    "dotenv": "^16.0.3",
+    "dotenv-flow": "^3.2.0",
+    "uuid": "^8.3.0"
+  },
+  "prettier": {
+    "semi": false,
+    "arrowParens": "always",
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^18.15.10",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-sonarjs": "^0.6.0",
+    "jest": "^26.6.3",
+    "nock": "^13.3.0",
+    "ts-jest": "^26.4.0",
+    "ts-node-dev": "1.1.6",
+    "typescript": "^4.2.3"
+  }
+}
