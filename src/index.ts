@@ -1,3 +1,3 @@
-import { getWeather } from './usecases/getWeather'
+import { getCurrentWeather } from './usecases/getCurrentWeather'
 
-getWeather('Lisboa')
+getCurrentWeather('Lisbon')
