@@ -1,5 +1,10 @@
+import * as mqtt from 'mqtt'
+
 import { getCurrentWeather } from './usecases/getCurrentWeather'
 import { parseWeatherShort } from './usecases/parseWeatherShort'
+
+const mqttUrl = 'mqtt://localhost:1883'
+const client = mqtt.connect(mqttUrl)
 
 const getAndParseWeather = async () => {
   try {
