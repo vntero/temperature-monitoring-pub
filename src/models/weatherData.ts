@@ -45,3 +45,9 @@ export interface WeatherData {
   location: Location;
   current: Current;
 }
+
+export interface ChallengeData {
+  city: string,
+  temperature: number,
+  date: Date
+}

@@ -1,8 +1,17 @@
 import { getCurrentWeather } from './usecases/getCurrentWeather'
+import { parseWeatherData } from './usecases/parseWeatherData'
 
-const getWeather = async () => {
-  await getCurrentWeather('Lisbon')
-  await getCurrentWeather('Zurich')
+const getAndParseWeather = async () => {
+  try {
+    const weatherData = await getCurrentWeather('Lisbon')
+
+    const parsedData = parseWeatherData(weatherData)
+
+    console.log(parsedData)
+  } catch (error) {
+    console.error('Error getting or parsing weather data:', error)
+  }
 }
 
-setInterval(getWeather, 3000)
+// Call the function
+getAndParseWeather()
