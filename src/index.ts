@@ -15,4 +15,4 @@ const getAndParseWeather = async () => {
   }
 }
 
-setInterval(getAndParseWeather, 3000)
+setInterval(getAndParseWeather, 5000)

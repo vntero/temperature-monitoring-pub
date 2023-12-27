@@ -15,6 +15,7 @@
     "babel-jest": "^29.4.3",
     "dotenv": "^16.3.1",
     "dotenv-flow": "^3.2.0",
+    "mqtt": "^5.3.4",
     "uuid": "^8.3.0"
   },
   "prettier": {
