@@ -20,16 +20,12 @@ export const getCurrentWeather = async (city: string): Promise<WeatherData> => {
 
     // handles the situation in case of an HTTP error
     if (!response.ok) {
-      const errorData = await response.json()
+      const errorData = response.json()
       throw new Error(`HTTP error! Status: ${response.status}, Error: ${JSON.stringify(errorData)}`)
     }
 
     // parses data to json
-    const data = await response.json()
-    // logs data to the console
-    console.log(data)
-
-    return data
+    return response.json()
   } catch (error) {
     console.error('Unable to fetch weather data', error)
     throw error

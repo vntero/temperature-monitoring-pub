@@ -13,5 +13,4 @@ const getAndParseWeather = async () => {
   }
 }
 
-// Call the function
-getAndParseWeather()
+setInterval(getAndParseWeather, 3000)
