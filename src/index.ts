@@ -1,5 +1,8 @@
-import { makeGetCurrentWeather } from './usecases/getCurrentWeather'
+import { getCurrentWeather } from './usecases/getCurrentWeather'
 
-const getCurrentWeather = () => makeGetCurrentWeather('Lisbon')
+const getWeather = async () => {
+  await getCurrentWeather('Lisbon')
+  await getCurrentWeather('Zurich')
+}
 
-setInterval(getCurrentWeather, 5000)
+setInterval(getWeather, 3000)

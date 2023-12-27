@@ -8,7 +8,7 @@ const apiKey = process.env.WEATHER_API_KEY as string
 const apiUrl = new URL('http://api.weatherapi.com/v1/current.json')
 
 // ----- MAIN FUNCTION -----
-export const makeGetCurrentWeather = async (city: string): Promise<WeatherData> => {
+export const getCurrentWeather = async (city: string): Promise<WeatherData> => {
   try {
     // adds key to the api call
     apiUrl.searchParams.append('key', apiKey)
