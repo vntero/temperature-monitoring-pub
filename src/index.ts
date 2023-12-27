@@ -1,3 +1,5 @@
-import { getCurrentWeather } from './usecases/getCurrentWeather'
+import { makeGetCurrentWeather } from './usecases/getCurrentWeather'
 
-getCurrentWeather('Lisbon')
+const getCurrentWeather = () => makeGetCurrentWeather('Lisbon')
+
+setInterval(getCurrentWeather, 5000)
