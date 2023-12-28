@@ -17,5 +17,5 @@ client.on('connect', () => {
 
 // grabs message and logs it
 client.on('message', (topic, message) => {
-  console.log('Topic: ' + topic, 'Message: ' + message.toString())
+  console.log('Topic: ' + topic, 'Message: ' + message)
 })
