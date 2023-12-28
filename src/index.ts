@@ -4,7 +4,7 @@ import { getCurrentWeather } from './usecases/getCurrentWeather'
 import { parseWeatherShort } from './usecases/parseWeatherShort'
 
 // ----- broker connection configs -----
-const mqttUrl = 'mqtt://localhost:1883'
+const mqttUrl = 'http://localhost:1883/'
 const client = mqtt.connect(mqttUrl)
 const topic = 'test-topic'
 
@@ -14,6 +14,8 @@ client.on('connect', () => {
   client.subscribe(topic, (err) => {
     if (!err) {
       console.log('Subscribed to topic')
+    } else {
+      console.error('Error subscribing to topic:', err)
     }
   })
 })
@@ -30,9 +32,14 @@ const getAndPublishWeather = async () => {
     console.log(weatherShortB)
 
     // publish messages to the topic
-    client.publish(topic, JSON.stringify(weatherShortA))
-    client.publish(topic, JSON.stringify(weatherShortB))
-    console.log('Messages published')
+    const messages = [weatherShortA, weatherShortB]
+    client.publish('test-topic', JSON.stringify(messages), (err) => {
+      if (!err) {
+        console.log('Messages published:', messages)
+      } else {
+        console.error('Error publishing messages:', err)
+      }
+    })
   } catch (error) {
     console.error('Error getting or parsing weather data:', error)
   }
