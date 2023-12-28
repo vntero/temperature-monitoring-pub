@@ -17,10 +17,7 @@ client.on('connect', () => {
   })
 })
 
-/**
- * Combines getCurrentWeather with parseWeatherShort.
- * It gets weather data and parses it to a short version.
- */
+// ----- gets weather data and parses it to short version -----
 const getAndParseWeather = async () => {
   try {
     const weatherDataA = await getCurrentWeather('Lisbon')
@@ -35,4 +32,5 @@ const getAndParseWeather = async () => {
   }
 }
 
+// ----- calls the function every 5 seconds -----
 setInterval(getAndParseWeather, 5000)
