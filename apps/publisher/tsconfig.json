@@ -11,7 +11,6 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "strict": true,
-    "suppressImplicitAnyIndexErrors": true,
     "allowUnreachableCode": false,
     "resolveJsonModule": true,
     "baseUrl": ".",
