@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2019",
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "strict": true,
+    "allowUnreachableCode": false,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "rootDir": "src",
+    "typeRoots": [
+      "node_modules/@types",
+      "types/**/*.d.ts",
+    ],
+    "paths": {},
+    "types": ["jest"]
+  },
+  "include": [
+    "src/**.ts",
+    "src/**.json",
+    "types"
+, "src/usecases/usecase.ts"  ],
+  "exclude": [
+    "node_modules",
+  ]
+}
