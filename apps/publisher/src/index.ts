@@ -9,14 +9,13 @@ const topic = 'candide-cunegonde'
 // ----- connect to broker -----
 client.on('connect', () => {
   console.log('Connected to mqtt broker')
-
   setInterval(async () => {
     const weatherDataA = await getCurrentWeather('Lisbon')
-    console.log(weatherDataA)
     const weatherDataB = await getCurrentWeather('Zurich')
-    console.log(weatherDataB)
 
     client.publish(topic, `Weather data for Lisbon -> ${JSON.stringify(weatherDataA)}.`)
+    console.log('Published: ', weatherDataA)
     client.publish(topic, `Weather data for Zurich -> ${JSON.stringify(weatherDataB)}.`)
+    console.log('Published: ', weatherDataB)
   }, 5000)
 })
