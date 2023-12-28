@@ -16,7 +16,7 @@ client.on('connect', () => {
     const weatherDataB = await getCurrentWeather('Zurich')
     console.log(weatherDataB)
 
-    client.publish(topic, 'Simple MQTT using HiveMQ: ' + weatherDataA + '.')
-    client.publish(topic, 'Simple MQTT using HiveMQ: ' + weatherDataB + '.')
+    client.publish(topic, `Weather data for Lisbon -> ${JSON.stringify(weatherDataA)}.`)
+    client.publish(topic, `Weather data for Zurich -> ${JSON.stringify(weatherDataB)}.`)
   }, 5000)
 })
