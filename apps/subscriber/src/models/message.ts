@@ -4,7 +4,7 @@ import { dbConnectionUri } from '../usecases/createMessage'
 
 const sequelize = new Sequelize(dbConnectionUri)
 
-const Message = sequelize.define('Message', {
+export const Message = sequelize.define('Message', {
   city: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -18,3 +18,5 @@ const Message = sequelize.define('Message', {
     allowNull: false,
   },
 })
+
+console.log(Message === sequelize.models.Message)
