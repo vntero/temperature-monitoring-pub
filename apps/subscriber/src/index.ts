@@ -1,5 +1,8 @@
 import * as mqtt from 'mqtt'
 
+import { createMessage } from './usecases/createMessage'
+import { WeatherDataShort } from './interfaces/weatherData'
+
 // broker connection configs
 const client = mqtt.connect('mqtt://broker.hivemq.com')
 const topic = 'candide-cunegonde'
@@ -15,7 +18,14 @@ client.on('connect', () => {
   })
 })
 
-// grabs message and logs it
+// grabs message, parses it and saves it
 client.on('message', (topic, message) => {
-  console.log('Topic: ' + topic, 'Message: ' + message)
+  console.log('Received message:', message.toString())
+  try {
+    const parsedMessage = JSON.parse(message.toString()) as WeatherDataShort
+    console.log('Parsed message:', parsedMessage)
+    createMessage(parsedMessage)
+  } catch (error) {
+    console.error('Error parsing message:', error)
+  }
 })

@@ -2,7 +2,7 @@ import { sequelize } from '../database/config'
 import { WeatherDataShort } from '../interfaces/weatherData'
 import { Message } from '../models/message'
 
-export const createMessage = async (message: WeatherDataShort): Promise<any> => {
+export const createMessage = async (message: WeatherDataShort): Promise<void> => {
   try {
     // sync models with the db
     await sequelize.sync()
@@ -15,16 +15,8 @@ export const createMessage = async (message: WeatherDataShort): Promise<any> => 
       temperature: message.temperature,
       date: message.date,
     })
-    console.log('Saved to db:', msg)
-    // close connection
-    sequelize.close()
+    console.log('Saved to db:', msg.toJSON())
   } catch (error) {
     console.error('Unable to connect to the database', error)
   }
 }
-
-createMessage({
-  city: 'Lisboa',
-  temperature: 8,
-  date: new Date('2023-12-31'),
-})
