@@ -18,7 +18,7 @@ const dbConnectionUri = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/
 // connect to database by passing a connection URI
 const sequelize = new Sequelize(dbConnectionUri)
 
-export const createMessage = async () => {
+export const createMessage = async (message: WeatherDataShort): Promise<any> => {
   try {
     await sequelize.authenticate()
     console.log('Connection has been established successfully')
@@ -26,5 +26,3 @@ export const createMessage = async () => {
     console.error('Unable to connect to the database', error)
   }
 }
-
-createMessage()
