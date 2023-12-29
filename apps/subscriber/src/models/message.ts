@@ -1,8 +1,6 @@
-import { Sequelize, DataTypes } from 'sequelize'
+import { DataTypes } from 'sequelize'
 
-import { dbConnectionUri } from '../usecases/createMessage'
-
-const sequelize = new Sequelize(dbConnectionUri)
+import { sequelize } from '../database/config'
 
 export const Message = sequelize.define('Message', {
   city: {
@@ -10,7 +8,7 @@ export const Message = sequelize.define('Message', {
     allowNull: false,
   },
   temperature: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.FLOAT,
     allowNull: false,
   },
   date: {

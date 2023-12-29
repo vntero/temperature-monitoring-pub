@@ -1,28 +1,11 @@
-import { Sequelize } from 'sequelize'
-import * as dotenv from 'dotenv'
-
-import { WeatherDataShort } from '../models/weatherData'
+import { sequelize } from '../database/config'
+import { WeatherDataShort } from '../interfaces/weatherData'
 import { Message } from '../models/message'
-
-dotenv.config()
-
-// extract db connection information from env file
-const dbName = process.env.DB
-const dbUser = process.env.DB_USER
-const dbPassword = process.env.DB_PASSWORD
-const dbHost = process.env.DB_HOST
-const dbPort = process.env.DB_PORT
-
-// construct the connection URI
-const dbConnectionUri = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
-
-// connect to database by passing a connection URI
-export const sequelize = new Sequelize(dbConnectionUri, {
-  dialect: 'postgres',
-})
 
 export const createMessage = async (message: WeatherDataShort): Promise<any> => {
   try {
+    // sync models with the db
+    await sequelize.sync()
     // authenticate connection
     await sequelize.authenticate()
     console.log('Connection has been established successfully')
@@ -32,7 +15,7 @@ export const createMessage = async (message: WeatherDataShort): Promise<any> => 
       temperature: message.temperature,
       date: message.date,
     })
-    console.log('Auto generated ID', msg)
+    console.log('Saved to db:', msg)
     // close connection
     sequelize.close()
   } catch (error) {
