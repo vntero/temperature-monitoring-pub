@@ -13,15 +13,18 @@ const dbHost = process.env.DB_HOST
 const dbPort = process.env.DB_PORT
 
 // construct the connection URI
-const dbConnectionUri = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
+export const dbConnectionUri = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
 
 // connect to database by passing a connection URI
 const sequelize = new Sequelize(dbConnectionUri)
 
 export const createMessage = async (message: WeatherDataShort): Promise<any> => {
   try {
+    // authenticate connection
     await sequelize.authenticate()
     console.log('Connection has been established successfully')
+    // close connection
+    sequelize.close()
   } catch (error) {
     console.error('Unable to connect to the database', error)
   }
