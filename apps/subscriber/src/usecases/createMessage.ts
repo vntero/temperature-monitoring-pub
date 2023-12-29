@@ -15,7 +15,6 @@ const dbPort = process.env.DB_PORT
 // construct the connection URI
 const dbConnectionUri = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
 
-console.error('🔥🔥🔥 ~ file: createMessage.ts:18 ~ dbConnectionUri:', dbConnectionUri)
 // connect to database by passing a connection URI
 const sequelize = new Sequelize(dbConnectionUri)
 
