@@ -13,9 +13,9 @@ client.on('connect', () => {
     const weatherDataA = await getCurrentWeather('Lisbon')
     const weatherDataB = await getCurrentWeather('Zurich')
 
-    client.publish(topic, `Weather data for Lisbon -> ${JSON.stringify(weatherDataA)}.`)
+    client.publish(topic, JSON.stringify(weatherDataA))
     console.log('Published: ', weatherDataA)
-    client.publish(topic, `Weather data for Zurich -> ${JSON.stringify(weatherDataB)}.`)
+    client.publish(topic, JSON.stringify(weatherDataB))
     console.log('Published: ', weatherDataB)
   }, 5000)
 })
