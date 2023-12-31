@@ -1,5 +1,5 @@
 # temperature-monitoring-pub
-Monitoring of temperate in two cities. The objective is to develop an app capable of getting and processing temperature data for 2 distinct cities. Data must be persisted.
+This project involves monitoring temperatures in two cities with the objective of developing an app capable of retrieving and processing temperature data for distinct cities with the help of a message broker(mosquitto). The data obtained must be persisted.
 
 - Version: 1.0
 
