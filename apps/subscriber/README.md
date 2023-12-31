@@ -7,11 +7,7 @@ This project involves monitoring temperatures in two cities with the objective o
 To run the subscriber, all you need to do is to run the index file (i.e. ts-node src/index.ts)
 
 ### Configuration
-This app needs a database to save the incoming messages, and for that you'll need to have a Docker container running with a Postgres database on port 5432. After that, you need to set up the environment variables that will allow you to establish the connection.
-
-### Dependencies
-
-List any dependencies required to run the project.
+This app requires a database to store incoming messages. You'll need to have a Docker container running with a PostgreSQL database on port 5432. After that, set up the environment variables to establish the connection.
 
 ### Database configuration
 * DB=postgres
